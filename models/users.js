@@ -2,8 +2,8 @@
 
 const { DataTypes } = require('sequelize');
 
-module.exports = (sequelize) => {
-  const users = sequelize.define(
+module.exports = (Sequelize) => {
+  const users = Sequelize.define(
     'users',
     {
       id: {
@@ -62,10 +62,22 @@ module.exports = (sequelize) => {
     if (models.userRoles) {
       users.belongsTo(models.userRoles, {
         foreignKey: 'userRoleId',
+        as: 'role'
       });
+
     } else {
       console.error('userRoles model is not properly loaded');
     }
+
+    users.belongsTo(models.patients, {
+      foreignKey: 'patientId',
+      as: 'patient'
+    });
+
+    users.belongsTo(models.doctors, {
+      foreignKey: 'doctorId',
+      as: 'doctor'
+    })
   };
   return users;
 };

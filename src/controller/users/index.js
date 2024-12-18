@@ -34,6 +34,7 @@ class UserController {
          )
 
       } catch (error) {
+         console.log('Error =>', error);
          res.error('',
             'something went wrong',
             500

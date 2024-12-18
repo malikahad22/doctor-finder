@@ -22,7 +22,6 @@ class AuthController {
       try {
          const { email, password } = req.body;
          const user = await this.auth.login_user(email);
-
          if (!user) {
             res.error(null, 'user not found!', 404);
             return;

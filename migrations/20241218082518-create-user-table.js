@@ -61,6 +61,16 @@ module.exports = {
         references: { model: 'userRoles', key: 'id' },
         onDelete: 'SET NULL',
       },
+      doctorId: {
+        type: Sequelize.UUID,
+        references: { model: 'doctors', key: 'id' },
+        onDelete: 'CASCADE'
+      },
+      patientId: {
+        type: Sequelize.UUID,
+        references: { model: 'patients', key: 'id' },
+        onDelete: 'CASCADE'
+      },
       createdAt: {
         type: Sequelize.DATE,
         defaultValue: null
@@ -70,7 +80,6 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: null
       }
-
     })
 
   },

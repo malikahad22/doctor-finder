@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { users, userRoles } = require("../../../models");
+const { users, userRoles, patients, doctors } = require("../../../models");
 const email_template = require("../../nodemailer/email-template");
 
 class AuthService {
@@ -18,7 +18,11 @@ class AuthService {
             attributes: {
                exclude: ["userRoleId"],
             },
-            include: { model: userRoles }
+            include: [
+               { model: userRoles, as: 'role' },
+               { model: patients, as: 'patient' },
+               { model: doctors, as: 'doctor' }
+            ],
          });
          return user;
 
