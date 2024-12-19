@@ -23,7 +23,6 @@ class UserController {
 
    create_user = async (req, res) => {
       try {
-
          const payload = req.body;
          const hash = await hash_password(payload.password);
          payload['password'] = hash;
@@ -56,14 +55,7 @@ class UserController {
    update_user = async (req, res) => {
       try {
          const { id, ...data } = req.body;
-         console.log("id", id)
-         console.log("data", data);
          const response = await this.users_service.update_user(id, data);
-         console.log("response", response);
-
-
-
-
       } catch (error) {
 
       }

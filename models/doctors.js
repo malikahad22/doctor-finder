@@ -37,8 +37,15 @@ module.exports = (Sequelize) => {
 
       doctors.hasMany(models.appointments, {
          foriegnKey: 'doctorId',
-         as: 'doctor'
+         as: 'appointments'
       });
+
+      doctors.belongsToMany(models.specialities, {
+         through: 'doctor-specialities',
+         foriegnKey: 'doctorId',
+         otherKey: 'specialityId',
+         as: 'doctor_specialities'
+      })
    }
 
    return doctors;

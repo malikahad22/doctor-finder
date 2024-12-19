@@ -28,7 +28,7 @@ module.exports = {
       address: "house E#88 st#1",
       userRoleId: userRoles.flat().find((user) => {
         if (user.role === 'doctor') return user
-      }).id
+      }).id,
     },
     {
       id: uuidv4(),
@@ -41,7 +41,7 @@ module.exports = {
       address: "house E#88 st#1",
       userRoleId: userRoles.flat().find((user) => {
         if (user.role === 'patient') return user
-      }).id
+      }).id,
     }]);
   },
 

@@ -37,7 +37,7 @@ class AuthController {
 
 
          delete user['dataValues'].password;
-         res.success(token, 'user fetched successfully', 200);
+         res.success(user, 'user fetched successfully', 200);
 
       } catch (error) {
          res.error(error, 'something went wrong!');
@@ -67,10 +67,7 @@ class AuthController {
             res.error('', 'Email not sent!', 400);
             return;
          }
-
-         console.log("{ otp: otp, expiryTime: expiry_time }", { otp: otp, expiryTime: expiry_time })
          const resp = await this.user.update_user({ otp: otp, expiryTime: expiry_time }, null, email);
-         console.log("res", resp);
          res.success(resp, 'Email sent successfully!', 200);
 
       } catch (error) {

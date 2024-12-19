@@ -2,11 +2,13 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (Sequelize) => {
+
    const appointments = Sequelize.define('appointments', {
       id: {
          type: DataTypes.UUID,
          allowNull: false,
-         defaultValue: DataTypes.UUIDV4
+         defaultValue: DataTypes.UUIDV4,
+         primaryKey: true
       },
       description: {
          type: DataTypes.TEXT,
@@ -34,4 +36,6 @@ module.exports = (Sequelize) => {
          as: 'doctor'
       })
    }
+
+   return appointments;
 }

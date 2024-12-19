@@ -6,6 +6,7 @@ class AuthService {
    constructor() { }
 
    login_user = async (email) => {
+
       try {
 
          const user = await users.findOne({
@@ -30,6 +31,7 @@ class AuthService {
          throw error;
       }
    }
+
 }
 
 module.exports = AuthService;

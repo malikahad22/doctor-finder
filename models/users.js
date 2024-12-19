@@ -3,6 +3,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (Sequelize) => {
+
   const users = Sequelize.define(
     'users',
     {
@@ -79,5 +80,6 @@ module.exports = (Sequelize) => {
       as: 'doctor'
     })
   };
+
   return users;
 };

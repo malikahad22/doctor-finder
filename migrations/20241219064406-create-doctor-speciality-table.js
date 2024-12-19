@@ -3,23 +3,13 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('appointments', {
-      
+    await queryInterface.createTable('doctor-speciality', {
       id: {
         type: Sequelize.UUID,
         primaryKey: true,
         allowNull: false,
         defaultValue: Sequelize.UUIDV4,
-      },
 
-      patientId: {
-        type: Sequelize.UUID,
-        allowNull: false,
-        references: {
-          model: 'patients',
-          key: 'id'
-        },
-        onDelete: 'SET NULL'
       },
 
       doctorId: {
@@ -32,14 +22,14 @@ module.exports = {
         onDelete: 'CASCADE'
       },
 
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: false
-      },
-
-      date: {
-        type: Sequelize.DATEONLY,
-        allowNull: false
+      specialityId: {
+        type: Sequelize.UUID,
+        allowNull: false,
+        references: {
+          model: 'specialities',
+          key: 'id'
+        },
+        onDelete: 'CASCADE'
       },
 
       createdAt: {
@@ -54,7 +44,7 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
 
-    await queryInterface.dropTable('appointments');
+    await queryInterface.dropTable('users');
 
   }
 };

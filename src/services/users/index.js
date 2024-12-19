@@ -63,7 +63,6 @@ class UsersService {
             preRes = await this.doctor.create_doctor({ experience, bio, location });
          }
 
-         console.log("preRes", preRes);
          if (!preRes) throw new Error(`${role} is note created`);
 
          if (isPatient) {
@@ -71,9 +70,6 @@ class UsersService {
          } else {
             restData['doctorId'] = preRes.id;
          }
-
-         console.log("restData", restData);
-
          const response = await users.create(restData, {
             include: [
                {
@@ -93,10 +89,7 @@ class UsersService {
          const result = await users.update({ isDeleted: true }, {
             where: { id: id },
          });
-
-         console.log("result", result);
          return result;
-
       } catch (error) {
          throw error;
       }

@@ -5,9 +5,7 @@ class PatientService {
 
    async create_patient(data) {
       try {
-         console.log("data", data);
          const response = await patients.create(data);
-         console.log("response", response);
          return response;
       } catch (error) {
          throw error;

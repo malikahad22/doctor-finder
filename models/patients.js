@@ -32,7 +32,7 @@ module.exports = (Sequelize) => {
 
       patients.hasMany(models.appointments, {
          foreignKey: 'patientId',
-         as: 'patient'
+         as: 'appointments'
       })
    }
 
