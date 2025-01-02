@@ -3,7 +3,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = function (Sequelize) {
-   const doctor_specialities = Sequelize.define('doctor-specialities', {
+   const doctor_specialities = Sequelize.define('doctor_specialities', {
       id: {
          type: DataTypes.UUID,
          allowNull: false,
@@ -12,6 +12,7 @@ module.exports = function (Sequelize) {
 
       }
    });
+
 
    return doctor_specialities;
 }

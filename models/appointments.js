@@ -24,6 +24,7 @@ module.exports = (Sequelize) => {
    });
 
    appointments.associate = function (models) {
+
       if (models.patients) {
          appointments.belongsTo(models.patients, {
             foreignKey: 'patientId',
@@ -34,7 +35,8 @@ module.exports = (Sequelize) => {
       appointments.belongsTo(models.doctors, {
          foreignKey: 'doctorId',
          as: 'doctor'
-      })
+      });
+
    }
 
    return appointments;

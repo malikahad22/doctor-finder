@@ -26,11 +26,11 @@ module.exports = (Sequelize) => {
 
    specialities.associate = (models) => {
       specialities.belongsToMany(models.doctors, {
-         through: 'doctor-specialities',
-         foriegnKey: 'specialityId',
-         otherKey: 'doctorId',
-         as: 'specialities_doctor'
-      })
+         through: 'doctor_specialities', // Use the doctor_speciality model
+         foreignKey: 'specialityId', // Column in doctor_speciality referencing specialities
+         otherKey: 'doctorId', // Column in doctor_speciality referencing doctors
+         as: 'doctors', // Alias for the association
+      });
    }
 
    return specialities;

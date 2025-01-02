@@ -41,11 +41,11 @@ module.exports = (Sequelize) => {
       });
 
       doctors.belongsToMany(models.specialities, {
-         through: 'doctor-specialities',
-         foriegnKey: 'doctorId',
-         otherKey: 'specialityId',
-         as: 'doctor_specialities'
-      })
+         through: 'doctor_specialities', // Use the doctor_speciality model
+         foreignKey: 'doctorId', // Column in doctor_speciality referencing doctors
+         otherKey: 'specialityId', // Column in doctor_speciality referencing specialities
+         as: 'specialities', // Alias for the association
+      });
    }
 
    return doctors;

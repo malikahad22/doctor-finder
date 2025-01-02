@@ -56,8 +56,9 @@ class UserController {
       try {
          const { id, ...data } = req.body;
          const response = await this.users_service.update_user(id, data);
+         res.success(response, 'user updated successfully', 200);
       } catch (error) {
-
+         res.error(error, 'something went wrong', 500);
       }
    }
 }

@@ -1,6 +1,10 @@
 const express = require("express");
 const userRoutes = require('./routes/users/index');
 const authRoute = require('./routes/auth/index');
+const patientRoutes = require('./routes/patient/index');
+const doctorRoutes = require('./routes/doctors/index');
+const specialitiesRoutes = require('./routes/specialities/index');
+const specialitiesDoctorRoutes = require('./routes/doctor-specialities/index');
 const passport = require('passport');
 require('../config/passport')(passport);
 
@@ -14,6 +18,9 @@ app.use(passport.initialize());
 
 app.use('/', userRoutes);
 app.use('/', authRoute);
-
+app.use('/', patientRoutes);
+app.use('/', doctorRoutes);
+app.use('/', specialitiesRoutes);
+app.use('/', specialitiesDoctorRoutes);
 
 module.exports = app;

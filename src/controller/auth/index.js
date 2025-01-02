@@ -37,6 +37,10 @@ class AuthController {
 
 
          delete user['dataValues'].password;
+         user['token'] = token;
+         console.log(
+            "user", user
+         );
          res.success(user, 'user fetched successfully', 200);
 
       } catch (error) {
